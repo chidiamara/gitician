@@ -13,7 +13,7 @@ const Sidebar = () => {
     <aside className='flex flex-col items-center min-w-12 sm:w-16 sticky top-0 left-0 h-screen py-8 overflow-y-auto border-r glass-background'>
         <nav className='h-full flex flex-col gap-3'>
             <Link to="/"
-                className='flex justify-center transition-colors duration-200 rounded-lg hover:bg-gray-800'>
+                className='flex justify-center transition-colors duration-200 rounded-lg hover:bg-[#593A5A]'>
                 <img src="/svg/github.svg" alt="Github logo" className="w-8 h-8"/>
             </Link>
 
