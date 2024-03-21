@@ -1,6 +1,7 @@
 import { FaEye } from "react-icons/fa";
-import {TfiThought} from "react-icons/tfi"
+import {TfiThought} from "react-icons/tfi";
 import { ImLocation } from "react-icons/im";
+import { RiTwitterXFill } from "react-icons/ri";
 
 const ProfileInfo = () => {
 
@@ -56,6 +57,19 @@ const ProfileInfo = () => {
 						<ImLocation />
 						{userProfile?.location}
 					</div>
+				) : null}
+
+        {/* X Username Info */}
+				{userProfile?.twitter_username ? (
+					<a
+						href={`https://x.com/${userProfile.twitter_username}`}
+						target='_blank'
+						rel='noreferrer'
+						className='flex items-center gap-2 hover:text-sky-500'
+					>
+						<RiTwitterXFill />
+						{userProfile?.twitter_username}
+					</a>
 				) : null}
 
 			</div>
