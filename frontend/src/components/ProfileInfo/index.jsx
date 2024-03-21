@@ -94,6 +94,12 @@ const ProfileInfo = () => {
 					</div>
 				)}
 
+        {/* Username Info */}
+				<div className='my-2'>
+					<p className='text-gray-400 font-bold text-sm'>Username</p>
+					<p className=''>{userProfile?.login}</p>
+				</div>
+
 			</div>
 		</div>
   )
