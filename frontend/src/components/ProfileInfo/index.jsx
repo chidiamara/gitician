@@ -72,6 +72,12 @@ const ProfileInfo = () => {
 					</a>
 				) : null}
 
+         {/* Joined Github Date */}
+				<div className='my-2'>
+					<p className='text-gray-600 font-bold text-sm'>Member Since</p>
+					<p className=''>14 Jul, 2021</p>
+				</div>
+
 			</div>
 		</div>
   )
