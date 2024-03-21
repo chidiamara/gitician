@@ -1,5 +1,6 @@
 import { FaEye } from "react-icons/fa";
 import {TfiThought} from "react-icons/tfi"
+import { ImLocation } from "react-icons/im";
 
 const ProfileInfo = () => {
 
@@ -46,6 +47,14 @@ const ProfileInfo = () => {
 					<div className='flex items-center gap-2'>
 						<TfiThought />
 						<p className='text-sm'>{userProfile?.bio.substring(0, 60)}...</p>
+					</div>
+				) : null}
+
+         {/* Location */}
+				{userProfile?.location ? (
+					<div className='flex items-center gap-2'>
+						<ImLocation />
+						{userProfile?.location}
 					</div>
 				) : null}
 
