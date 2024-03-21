@@ -78,6 +78,14 @@ const ProfileInfo = () => {
 					<p className=''>14 Jul, 2021</p>
 				</div>
 
+         {/* Email Address Info */}
+				{userProfile?.email && (
+					<div className='my-2'>
+						<p className='text-gray-600 font-bold text-sm'>Email address</p>
+						<p className=''>{userProfile.email}</p>
+					</div>
+				)}
+
 			</div>
 		</div>
   )
