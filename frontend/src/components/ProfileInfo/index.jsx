@@ -1,4 +1,5 @@
 import { FaEye } from "react-icons/fa";
+import {TfiThought} from "react-icons/tfi"
 
 const ProfileInfo = () => {
 
@@ -39,6 +40,15 @@ const ProfileInfo = () => {
 						</a>
 					</div>
 				</div>
+        
+        {/* User Info */}
+				{userProfile?.bio ? (
+					<div className='flex items-center gap-2'>
+						<TfiThought />
+						<p className='text-sm'>{userProfile?.bio.substring(0, 60)}...</p>
+					</div>
+				) : null}
+
 			</div>
 		</div>
   )
