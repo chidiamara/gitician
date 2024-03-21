@@ -2,6 +2,7 @@ import { FaEye } from "react-icons/fa";
 import {TfiThought} from "react-icons/tfi";
 import { ImLocation } from "react-icons/im";
 import { RiTwitterXFill } from "react-icons/ri";
+import { SlUserFollowing } from "react-icons/sl";
 
 const ProfileInfo = () => {
 
@@ -99,6 +100,14 @@ const ProfileInfo = () => {
 					<p className='text-gray-400 font-bold text-sm'>Username</p>
 					<p className=''>{userProfile?.login}</p>
 				</div>
+
+        {/* User Followers Count */}
+        <div>
+            <div className='flex items-center gap-2 bg-glass rounded-lg p-2 flex-1 min-w-24'>
+              <SlUserFollowing className='w-5 h-5 text-sky-400' />
+              <p className='text-nxs'>Followers: {userProfile?.followers}</p>
+            </div>
+        </div>
 
 			</div>
 		</div>
