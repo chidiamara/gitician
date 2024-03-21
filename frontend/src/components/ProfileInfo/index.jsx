@@ -74,15 +74,23 @@ const ProfileInfo = () => {
 
          {/* Joined Github Date */}
 				<div className='my-2'>
-					<p className='text-gray-600 font-bold text-sm'>Member Since</p>
+					<p className='text-gray-400 font-bold text-sm'>Member Since</p>
 					<p className=''>14 Jul, 2021</p>
 				</div>
 
          {/* Email Address Info */}
 				{userProfile?.email && (
 					<div className='my-2'>
-						<p className='text-gray-600 font-bold text-sm'>Email address</p>
+						<p className='text-gray-400 font-bold text-sm'>Email address</p>
 						<p className=''>{userProfile.email}</p>
+					</div>
+				)}
+        
+        {/* User Full Name Info */}
+				{userProfile?.name && (
+					<div className='my-2'>
+						<p className='text-gray-400 font-bold text-sm'>Full name</p>
+						<p className=''>{userProfile?.name}</p>
 					</div>
 				)}
 
