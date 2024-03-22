@@ -103,7 +103,7 @@ const ProfileInfo = () => {
 					<p className=''>{userProfile?.login}</p>
 				</div>
 
-        <div>
+        <div className="flex flex-wrap gap-2 mx-4">
             {/* User Followers Count */}
             <div className='flex items-center gap-2 glass-background border-[#593A5A] rounded-lg p-2 flex-1 min-w-24'>
               <RiUserFollowFill  className='w-5 h-5 bg-gradient-to-r from-[#593A5A] to-blue-900' />
