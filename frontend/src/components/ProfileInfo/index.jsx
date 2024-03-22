@@ -110,7 +110,7 @@ const ProfileInfo = () => {
             </div>
 
         {/* User Following Count */}
-            <div className='flex items-center gap-2 glass-background rounded-lg p-2 flex-1 min-w-24'>
+            <div className='flex items-center gap-2 glass-background border-[#593A5A] rounded-lg p-2 flex-1 min-w-24'>
               <RiUserFollowLine className='w-5 h-5 bg-gradient-to-r from-[#593A5A] to-blue-900' />
               <p className='text-nxs'>Following: {userProfile?.following}</p>
             </div>
