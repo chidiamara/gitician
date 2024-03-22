@@ -5,8 +5,10 @@ import { RiTwitterXFill } from "react-icons/ri";
 import { RiUserFollowFill } from "react-icons/ri";
 import { RiUserFollowLine } from "react-icons/ri";
 import { RiGitRepositoryFill } from "react-icons/ri";
+import { formatMemberSince } from "../../utils/functions";
 
 const ProfileInfo = ({userProfile}) => {
+	const memberSince = formatMemberSince(userProfile?.created_at);
   return (
     <div className='lg:w-1/3 w-full flex flex-col gap-2 md:sticky md:top-10'>
 			<div className='glass-background rounded-lg p-4 border-[#593A5A]'>
@@ -62,7 +64,7 @@ const ProfileInfo = ({userProfile}) => {
          {/* Joined Github Date */}
 				<div className='my-2'>
 					<p className='text-gray-400 font-bold text-sm'>Member Since</p>
-					<p className=''>14 Jul, 2021</p>
+					<p className=''>{memberSince}</p>
 				</div>
 
          {/* Email Address Info */}
