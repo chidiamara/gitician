@@ -2,6 +2,8 @@ import Search from '../../components/Search'
 import SortRepos from '../../components/SortRepos'
 import ProfileInfo from '../../components/ProfileInfo'
 import Repos from '../../components/Repos'
+import Spinner from '../../components/Spinner'
+
 
 import { useCallback, useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
@@ -45,8 +47,9 @@ const Home = () => {
     <Search/>
     <SortRepos/>
       <div className='flex flex-col lg:flex-row justify-center items-start gap-4'>
-        <ProfileInfo userProfile={userProfile}/>
-        <Repos/>
+        {userProfile && !loading && <ProfileInfo userProfile={userProfile}/>}
+        {repos.length > 0 && !loading && <Repos repos={repos}/>}
+        {loading && <Spinner/>}
       </div>
     </div>
     </>

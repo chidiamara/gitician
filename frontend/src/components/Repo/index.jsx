@@ -1,19 +1,19 @@
 import { FaCodeBranch, FaCopy, FaStar } from "react-icons/fa";
 import { FaCodeFork } from "react-icons/fa6";
 
-const Repo = () => {
+const Repo = ({repo}) => {
   return (
     <li className="mb-10 ms-7">
     <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-md -start-3 ring-8 ring-white">
         <FaCodeBranch className="w-5 h-5 text-gray-800"/>
     </span>
     <div className="flex gap-2 flex-wrap items-center">
-        <a href={"https://github.com/chidiamara/expense-tracker"}
+        <a href={repo.html_url}
         target="_blank"
         rel="noreferrer"
         className="flex items-center gap-2 text-lg font-semibold"
         >
-            Expense Tracker
+           {repo.name}
         </a>
 
         <span className="bg-purple-100 text-purple-800 text-nxs font-medium px-2.5 py-0.5 rounded-full flex items-center gap-1">
