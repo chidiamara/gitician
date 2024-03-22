@@ -3,6 +3,7 @@ import {TfiThought} from "react-icons/tfi";
 import { ImLocation } from "react-icons/im";
 import { RiTwitterXFill } from "react-icons/ri";
 import { RiUserFollowFill } from "react-icons/ri";
+import { RiUserFollowLine } from "react-icons/ri";
 
 const ProfileInfo = () => {
 
@@ -106,6 +107,12 @@ const ProfileInfo = () => {
             <div className='flex items-center gap-2 glass-background border-[#593A5A] rounded-lg p-2 flex-1 min-w-24'>
               <RiUserFollowFill  className='w-5 h-5 bg-gradient-to-r from-[#593A5A] to-blue-900' />
               <p className='text-nxs'>Followers: {userProfile?.followers}</p>
+            </div>
+
+        {/* User Following Count */}
+            <div className='flex items-center gap-2 glass-background rounded-lg p-2 flex-1 min-w-24'>
+              <RiUserFollowLine className='w-5 h-5 bg-gradient-to-r from-[#593A5A] to-blue-900' />
+              <p className='text-nxs'>Following: {userProfile?.following}</p>
             </div>
         </div>
 
