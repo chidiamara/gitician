@@ -5,6 +5,7 @@ import Login from "./pages/Login/page";
 import Explore from "./pages/Explore/page";
 import SignUp from "./pages/SignUp/page";
 import Likes from "./pages/Likes/page";
+import {Toaster} from "react-hot-toast";
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
           <Route path='/likes' element={<Likes/>} />
           <Route path='/signup' element={<SignUp/>} />
         </Routes>
+        <Toaster/>
       </div>
     </div>
   )
