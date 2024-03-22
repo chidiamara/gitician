@@ -121,6 +121,12 @@ const ProfileInfo = () => {
               <RiGitRepositoryFill className="w-5 h-5 bg-gradient-to-r from-[#593A5A] to-blue-900" />
               <p className="text-nxs">Public Repos: {userProfile?.public_repos}</p>
             </div>
+
+            {/* No. of public gists */}
+            <div className="flex items-center gap-2 glass-background border-[#593A5A] rounded-lg p-2 flex-1 min-w-24">
+              <RiGitRepositoryFill className="w-5 h-5 bg-gradient-to-r from-[#593A5A] to-blue-900"/>
+              <p className="text-nxs">Public Gists: {userProfile?.public_gists}</p>
+            </div>
         </div>
 
 			</div>
