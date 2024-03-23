@@ -44,7 +44,10 @@ const Home = () => {
 
         const repoResponse = await fetch(userProfile.repos_url);
         const repos = await repoResponse.json();
+        repos.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)); // Sort the repositories based on the created date
         setRepos(repos);
+
+        return { userProfile, repos}
       } catch (error) {
         toast.error(error.message)
       } finally {
