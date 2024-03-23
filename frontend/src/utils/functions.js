@@ -1,3 +1,5 @@
+import toast from "react-hot-toast";
+
 export function formatMemberSince(inputDateString) {
     const options = {month: "short", day: "2-digit", year: "numeric"};
     const dateFormat = new Date(inputDateString).toLocaleDateString("en-US", options);
@@ -44,4 +46,14 @@ export function formatDate(inputDateString) {
 
     const dateFormat = `${monthName} ${getOrdinalSuffix(day)}, ${year}`;
     return dateFormat;
+}
+
+export function cloneClickHandler(repo) {
+    try {
+        const gitClone = `git clone ${repo.clone_url}`;
+        navigator.clipboard.writeText(gitClone);
+        toast.success("Repository cloned to clipboard");
+    } catch (error) {
+        toast.error("Failed to clone repository");
+    }
 }

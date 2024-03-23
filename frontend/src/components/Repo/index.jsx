@@ -2,6 +2,7 @@ import { FaCodeBranch, FaCopy, FaStar } from "react-icons/fa";
 import { FaCodeFork } from "react-icons/fa6";
 import { formatDate } from "../../utils/functions";
 import { ProgrammingLanguages } from "../../utils/constants";
+import { cloneClickHandler } from "../../utils/functions";
 
 const Repo = ({repo}) => {
     const dateFormat = formatDate(repo.created_at);
@@ -27,7 +28,9 @@ const Repo = ({repo}) => {
                 <FaStar/> 89
                 {repo.stargazers_count}
             </span>
-            <span className="cursor-pointer bg-green-100 text-green-900 text-nxs font-medium px-2.5 py-0.5 rounded-full flex items-center gap-1">
+            <span className="cursor-pointer bg-green-100 text-green-900 text-nxs font-medium px-2.5 py-0.5 rounded-full flex items-center gap-1 "
+            onClick={() => cloneClickHandler(repo)}
+            >
                 <FaCopy/> Clone
         </span>
     </div>
@@ -40,7 +43,6 @@ const Repo = ({repo}) => {
         {ProgrammingLanguages[repo.language] ? (
             <img src={ProgrammingLanguages[repo.language]} alt={repo.language} className="h-8" />
         ) : null}
-        {/* <img src={ProgrammingLanguages[repo.language]} alt={repo.language}className="h-8" /> */}
 </li>
   )
 }
