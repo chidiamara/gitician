@@ -1,6 +1,7 @@
 import { FaCodeBranch, FaCopy, FaStar } from "react-icons/fa";
 import { FaCodeFork } from "react-icons/fa6";
 import { formatDate } from "../../utils/functions";
+import { ProgrammingLanguages } from "../../utils/constants";
 
 const Repo = ({repo}) => {
     const dateFormat = formatDate(repo.created_at);
@@ -35,7 +36,11 @@ const Repo = ({repo}) => {
             Released on {dateFormat}
     </time>
         <p className="mb-4 font-normal text-gray-300 text-base"> {repo.description ? repo.description : "No description found"} </p>
-        <img src={"/svg/css.svg"} alt="Programming language icon" className="h-8" />
+
+        {ProgrammingLanguages[repo.language] ? (
+            <img src={ProgrammingLanguages[repo.language]} alt={repo.language} className="h-8" />
+        ) : null}
+        {/* <img src={ProgrammingLanguages[repo.language]} alt={repo.language}className="h-8" /> */}
 </li>
   )
 }

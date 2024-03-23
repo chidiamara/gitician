@@ -31,6 +31,9 @@ const Explore = () => {
           <img src='/svg/haskell.svg' alt='haskell logo' className='h-11 sm:h-20 cursor-pointer'/>
           <img src='/svg/lua.svg' alt='lua logo' className='h-11 sm:h-20 cursor-pointer'/>
           <img src='/svg/clojure.svg' alt='clojure logo' className='h-11 sm:h-20 cursor-pointer'/>
+          <img src='/svg/julia.svg' alt='julia logo' className='h-11 sm:h-20 cursor-pointer'/>
+          <img src='/svg/nim.svg' alt='nim logo' className='h-11 sm:h-20 cursor-pointer'/>
+          <img src='/svg/jupyter.svg' alt='jupyter logo' className='h-11 sm:h-20 cursor-pointer'/>
         </div>
       </div>
     </div>
