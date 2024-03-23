@@ -1,7 +1,9 @@
 import { FaCodeBranch, FaCopy, FaStar } from "react-icons/fa";
 import { FaCodeFork } from "react-icons/fa6";
+import { formatDate } from "../../utils/functions";
 
 const Repo = ({repo}) => {
+    const dateFormat = formatDate(repo.created_at);
   return (
     <li className="mb-10 ms-7">
     <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-md -start-3 ring-8 ring-white">
@@ -30,7 +32,7 @@ const Repo = ({repo}) => {
     </div>
 
     <time className="block my-1 text-nxs font-normal leading-none text-gray-400">
-            Released on March 2022
+            Released on {dateFormat}
     </time>
         <p>Expense Tracker | HTML, CSS and JavaScript </p>
         <img src={"/svg/css.svg"} alt="Programming language icon" className="h-8" />
