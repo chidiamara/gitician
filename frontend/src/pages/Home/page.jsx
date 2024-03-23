@@ -29,10 +29,16 @@ const Home = () => {
    * Fetches user profile and repositories from the GitHub API.
    * @returns {Promise<void>} A promise that resolves when the data is fetched.
    */
-  const getUserProfAndRepo = useCallback(async() => {
+  const getUserProfAndRepo = useCallback (async(username="chidiamara") => {
       setLoading(true)
       try {
-        const userResponse = await fetch ("https://api.github.com/users/openai")
+        const userResponse = await fetch (`https://api.github.com/users/${username}`,
+        {
+          headers: {
+            Authorization: `token ${import.meta.env.APP_GITHUB_TOKEN}`
+          }
+        }
+        )
         const userProfile = await userResponse.json();
         setUserProfile(userProfile);
 
