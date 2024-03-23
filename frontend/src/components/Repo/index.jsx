@@ -34,7 +34,7 @@ const Repo = ({repo}) => {
     <time className="block my-1 text-nxs font-normal leading-none text-gray-400">
             Released on {dateFormat}
     </time>
-        <p>Expense Tracker | HTML, CSS and JavaScript </p>
+        <p className="mb-4 font-normal text-gray-300 text-base"> {repo.description ? repo.description : "No description found"} </p>
         <img src={"/svg/css.svg"} alt="Programming language icon" className="h-8" />
 </li>
   )
