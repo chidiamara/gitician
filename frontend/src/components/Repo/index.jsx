@@ -18,9 +18,11 @@ const Repo = ({repo}) => {
 
         <span className="bg-purple-100 text-purple-800 text-nxs font-medium px-2.5 py-0.5 rounded-full flex items-center gap-1">
                 <FaCodeFork/> 32
+                {repo.forks_count}
             </span>
             <span className="bg-yellow-100 text-yellow-600 text-nxs font-medium px-2.5 py-0.5 rounded-full flex items-center gap-1">
                 <FaStar/> 89
+                {repo.stargazers_count}
             </span>
             <span className="cursor-pointer bg-green-100 text-green-900 text-nxs font-medium px-2.5 py-0.5 rounded-full flex items-center gap-1">
                 <FaCopy/> Clone
