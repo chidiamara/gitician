@@ -22,9 +22,6 @@ const Home = () => {
 
   const [userProfile, setUserProfile] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [repos, setRepos] = useState([]);
-
-  const [sortType, setSortType] = useState("stars");
 
 
   // Use Callback To Avoid Infinite Loop
@@ -41,9 +38,7 @@ const Home = () => {
 
         const repoResponse = await fetch(userProfile.repos_url);
         const repos = await repoResponse.json();
-        setRepos(repos)
-        console.log("userProfile:", userProfile);
-        console.log("repos:", repos)
+        setRepos(repos);
       } catch (error) {
         toast.error(error.message)
       } finally {
@@ -61,7 +56,9 @@ const Home = () => {
    * @param {string} username - The username of the user to search for.
    * @returns {Promise<void>}
    */
-    const onSearchSubmit = async (e, username) => { 
+
+    const [repos, setRepos] = useState([]); // State for repositories
+    const onSearchSubmit = async (e, username) => {
       e.preventDefault();
       setLoading(true);
       try {
@@ -79,13 +76,36 @@ const Home = () => {
       }
     };
 
+    const [sortType, setSortType] = useState(""); // State for sorting
+
+  /**
+   * Handles the sorting of repositories based on the given type.
+   * @param {string} type - The type of sorting to be applied (e.g. "stars", "forks", "created").
+   */
+  const onSort = (type) => {
+    setSortType(type);
+    const sorted = [...repos].sort((a, b) => { // Sort the repositories based on the type
+      switch (type) {
+        case "stars":
+          return b.stargazers_count - a.stargazers_count;
+        case "forks":
+          return b.forks_count - a.forks_count;
+        case "created":
+          return new Date(b.created_at) - new Date(a.created_at);
+        default:
+          return 0;
+      }
+    });
+    setRepos(sorted);
+  };
+
   return (
     <div className='m-4'>
     <Search onSearchSubmit={onSearchSubmit}/>
-    <SortRepos/>
+    {repos.length > 0 && <SortRepos onSort={onSort} sortType={sortType}/>}
       <div className='flex flex-col lg:flex-row justify-center items-start gap-4'>
         {userProfile && !loading && <ProfileInfo userProfile={userProfile}/>}
-        {repos.length > 0 && !loading && <Repos repos={repos}/>}
+        {!loading && <Repos repos={repos}/>}
         {loading && <Spinner/>}
       </div>
     </div>
