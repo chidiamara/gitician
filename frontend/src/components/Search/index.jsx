@@ -1,7 +1,7 @@
 import { IoSearch } from 'react-icons/io5'
 import { useState } from 'react'
 
-const Search = (onSearchSubmit) => {
+const Search = ({onSearchSubmit}) => {
 	const [username, setUsername] = useState('');
   return (
     <form className='max-w-xl mx-auto mt-10 p-2 sm:w-72'
