@@ -7,6 +7,7 @@ import Spinner from '../../components/Spinner'
 
 import { useCallback, useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
+import { set } from 'mongoose'
 
 /**
  * Renders the Home page component.
@@ -23,13 +24,15 @@ const Home = () => {
   const [userProfile, setUserProfile] = useState(null);
   const [loading, setLoading] = useState(false);
 
+  const [sortType, setSortType] = useState("created"); // State for sorting
+
 
   // Use Callback To Avoid Infinite Loop
   /**
    * Fetches user profile and repositories from the GitHub API.
    * @returns {Promise<void>} A promise that resolves when the data is fetched.
    */
-  const getUserProfAndRepo = useCallback (async(username="chidiamara") => {
+  const getUserProfAndRepo = useCallback (async(username= "openai") => {
       setLoading(true)
       try {
         const userResponse = await fetch (`https://api.github.com/users/${username}`,
@@ -67,25 +70,22 @@ const Home = () => {
    */
 
     const [repos, setRepos] = useState([]); // State for repositories
+
     const onSearchSubmit = async (e, username) => {
       e.preventDefault();
       setLoading(true);
-      try {
-        const userResponse = await fetch(`https://api.github.com/users/${username}`);
-        const userProfile = await userResponse.json();
-        setUserProfile(userProfile);
-  
-        const repoResponse = await fetch(userProfile.repos_url);
-        const repos = await repoResponse.json();
-        setRepos(repos);
-      } catch (error) {
-        toast.error(error.message);
-      } finally {
-        setLoading(false);
-      }
+      setRepos([]); // Clear the repositories
+      setUserProfile(null); // Clear the user profile
+
+      const { userProfile, repos } = await getUserProfAndRepo(username);
+
+      setUserProfile(userProfile);
+      setRepos(repos);
+      setSortType("created"); // Reset the sorting type
+      setLoading(false);
     };
 
-    const [sortType, setSortType] = useState(""); // State for sorting
+
 
   /**
    * Handles the sorting of repositories based on the given type.
