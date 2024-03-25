@@ -35,20 +35,11 @@ const Home = () => {
   const getUserProfAndRepo = useCallback (async(username= "openai") => {
       setLoading(true)
       try {
-        const userResponse = await fetch (`https://api.github.com/users/${username}`,
-        {
-          headers: {
-            Authorization: `token ${import.meta.env.APP_GITHUB_TOKEN}`
-          }
-        }
-        )
-        const userProfile = await userResponse.json();
-        setUserProfile(userProfile);
-
-        const repoResponse = await fetch(userProfile.repos_url);
-        const repos = await repoResponse.json();
+        const userProfileRes = await fetch(`http://localhost:5000/api/users/profile/${username}`); // Fetch the user profile
+        const {userProfile, repos} = await userProfileRes.json();
         repos.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)); // Sort the repositories based on the created date
         setRepos(repos);
+        setUserProfile(userProfile);
 
         return { userProfile, repos}
       } catch (error) {
