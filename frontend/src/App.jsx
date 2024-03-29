@@ -22,8 +22,8 @@ function App() {
        <Sidebar/>
       <div className="max-w-5xl my-5 text-white mx-auto transition-all duration-300 flex-1">
         <Routes>
-          <Route path='/' element={userAuth ? <Home/> : <Navigate to='/login' />} />
-          {/* <Route path='/' element={<Home/>} /> */}
+          {/* <Route path='/' element={userAuth ? <Home/> : <Navigate to='/login' />} /> */}
+          <Route path='/' element={<Home/>} />
           <Route path='/login' element={!userAuth ? <Login/> : <Navigate to={"/"}/>} />
           <Route path='/explore' element={userAuth ? <Explore/> : <Navigate to={"login"} />} />
           <Route path='/likes' element={userAuth ? <Likes/> : <Navigate to={"likes"} />} />
