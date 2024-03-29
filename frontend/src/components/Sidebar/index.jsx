@@ -6,9 +6,10 @@ import LoginIcon from '../loginIcon/index';
 import LikesIcon from '../likeIcon/index';
 import ExploreIcon from '../exploreIcon';
 import HomeIcon from '../homeIcon';
+import { useAuthContext } from '../../Context/auth';
 
 const Sidebar = () => {
-  const userAuth = true;
+  const{userAuth} = useAuthContext();
   return (
     <aside className='flex flex-col items-center min-w-12 sm:w-16 sticky top-0 left-0 h-screen py-8 overflow-y-auto border-r glass-background'>
         <nav className='h-full flex flex-col gap-3'>
