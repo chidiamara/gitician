@@ -21,7 +21,6 @@ const Likes = () => {
 		}
 		getLikes();
 	}, []);
-	console.log("likes:", likes);
 
   return (
     <div className='relative overflow-x-auto shadow-md rounded-lg px-4 pt-5'>
