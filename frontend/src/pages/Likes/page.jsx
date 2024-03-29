@@ -1,6 +1,28 @@
 import { AiFillLike } from "react-icons/ai";
+import { useEffect, useState } from "react";
+import { toast } from "react-hot-toast";
+import { formatDate } from "../../utils/functions";
 
 const Likes = () => {
+	const [likes, setLikes] = useState([]);
+
+	useEffect(() => {
+		const getLikes = async () => {
+			try {
+				const res = await fetch("/api/users/likes",
+				 {credentials: "include"});
+				const data = await res.json();
+				if(data.error) throw new Error(data.error);
+				
+				setLikes(data.likedBy);
+			} catch (error) {
+				toast.error(error.message);
+			}
+		}
+		getLikes();
+	}, []);
+	console.log("likes:", likes);
+
   return (
     <div className='relative overflow-x-auto shadow-md rounded-lg px-4 pt-5'>
 			<table className='w-[80%] mx-auto text-sm text-left rtl:text-right glass-background border border-[#593A5A] overflow-hidden'>
@@ -21,20 +43,21 @@ const Likes = () => {
 					</tr>
 				</thead>
 				<tbody>
-					<tr className='glass-background border-b border-[#593A5A]'>
+					{likes.map((user, idx) => (
+						<tr className='glass-background border-b border-[#593A5A]' key={user.username}>
 						<td className='w-4 p-4'>
 							<div className='flex items-center'>
-								<span>1</span>
+								<span>{idx + 1}</span>
 							</div>
 						</td>
 						<th scope='row' className='flex items-center px-6 py-4 whitespace-nowrap '>
 							<img
 								className='w-10 h-10 rounded-full'
-								src={"https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"}
-								alt='Linkard image'
+								src={user.avatarUrl}
+								alt='User Avatar'
 							/>
 							<div className='ps-3'>
-								<div className='text-base font-semibold'>Maran</div>
+								<div className='text-base font-semibold'>{user.username}</div>
 							</div>
 						</th>
 						<td className='px-6 py-4'>
@@ -43,8 +66,9 @@ const Likes = () => {
 								Liked
 							</div>
 						</td>
-						<td className='px-6 py-4'>today</td>
+						<td className='px-6 py-4'>{formatDate(user.likedDate)}</td>
 					</tr>
+					))}
 				</tbody>
 			</table>
 		</div>
