@@ -3,7 +3,7 @@ import User from '../models/user.model.js';
 export const getUserProfAndRepos = async (req, res) => {
     const { username } = req.params;
     try {
-        const userResponse = await fetch (`http://api.github.com/users/${username}`,
+        const userResponse = await fetch (`https://api.github.com/users/${username}`,
         {
           headers: {
             authorization: `token ${process.env.APP_GITHUB_TOKEN}`

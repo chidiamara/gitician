@@ -34,7 +34,7 @@ const Home = () => {
   const getUserProfAndRepo = useCallback (async(username= "openai") => {
       setLoading(true)
       try {
-        const userProfileRes = await fetch(`https://gitician.onrender.com/api/users/profile/${username}`); // Fetch the user profile
+        const userProfileRes = await fetch(`api/users/profile/${username}`); // Fetch the user profile
         const {userProfile, repos} = await userProfileRes.json();
         repos.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)); // Sort the repositories based on the created date
         setRepos(repos);
