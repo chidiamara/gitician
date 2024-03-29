@@ -5,7 +5,7 @@ import { toast } from "react-hot-toast";
 export const AuthContext = createContext();
 
 export const useAuthContext = () => {
-    return useContext(AuthContext); //check error
+    return useContext(AuthContext);
 }
 
 export const AuthContextProvider = ({ children }) => {

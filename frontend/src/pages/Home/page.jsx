@@ -7,7 +7,6 @@ import Spinner from '../../components/Spinner'
 
 import { useCallback, useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
-import { set } from 'mongoose'
 
 /**
  * Renders the Home page component.
