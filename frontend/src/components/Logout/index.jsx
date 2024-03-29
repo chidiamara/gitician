@@ -2,7 +2,6 @@
 import toast from "react-hot-toast";
 import { RiLogoutCircleLine } from "react-icons/ri";
 import { useAuthContext } from "../../Context/auth";
-import User from "../../../../server/models/user.model";
 
 const Logout = () => {
 	const {userAuth, setAuthUser} = useAuthContext();
@@ -11,7 +10,6 @@ const Logout = () => {
 		try {
 			const res = await fetch("/api/auth/logout", {credentials: "include"});
 			const data = await res.json();
-			console.log(data);
 			setAuthUser(null);
 		} catch (error) {
 			toast.error(error.message);

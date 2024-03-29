@@ -11,8 +11,12 @@ import Likes from "./pages/Likes/page";
 import { useAuthContext } from "./Context/auth.jsx";
 
 function App() {
-  const {userAuth} = useAuthContext();
-  console.log("authenticated user:", userAuth)
+  const {userAuth, loading} = useAuthContext();
+  // console.log("authenticated user:", userAuth)
+
+  if (loading) {
+    return null;
+  }
   return (
     <div className="flex text-white">
        <Sidebar/>
