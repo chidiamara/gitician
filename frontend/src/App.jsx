@@ -11,7 +11,7 @@ import Likes from "./pages/Likes/page";
 import { useAuthContext } from "./Context/auth.jsx";
 
 function App() {
-  const {userAuth} = useAuthContext(); //check error
+  const {userAuth} = useAuthContext();
   console.log("authenticated user:", userAuth)
   return (
     <div className="flex text-white">
@@ -20,7 +20,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home/>} />
           <Route path='/login' element={!userAuth ? <Login/> : <Navigate to={"/"}/>} />
-          <Route path='/explore' element={<Explore/>} />
+          <Route path='/explore' element={userAuth ? <Explore/> : <Navigate to={"login"} />} />
           <Route path='/likes' element={<Likes/>} />
           <Route path='/signup' element={!userAuth ? <SignUp/> : <Navigate to={"/"}/>} />
         </Routes>
