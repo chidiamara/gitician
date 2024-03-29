@@ -21,7 +21,7 @@ function App() {
           <Route path='/' element={<Home/>} />
           <Route path='/login' element={!userAuth ? <Login/> : <Navigate to={"/"}/>} />
           <Route path='/explore' element={userAuth ? <Explore/> : <Navigate to={"login"} />} />
-          <Route path='/likes' element={<Likes/>} />
+          <Route path='/likes' element={userAuth ? <Likes/> : <Navigate to={"likes"} />} />
           <Route path='/signup' element={!userAuth ? <SignUp/> : <Navigate to={"/"}/>} />
         </Routes>
         <Toaster/>
